@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 只要联网、保持唤醒、开机广播；相机、定位、存储、通讯录一个都不申请 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- ★ 开机自启必备：没有这条，系统根本不会把开机完成广播发给我们 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- API 28 起前台服务需要声明，低版本系统会自动忽略 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QingchenRadio"
+        android:usesCleartextTraffic="true">
+
+        <!--
+          usesCleartextTraffic 必须开：
+          音源是 http 明文地址（Android 4.0/4.1 的 TLS 只支持 1.0，用 https 会握手失败、直接没声音），
+          Android 9 以后默认禁明文，要显式放行。
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 播放服务：退到后台 / 锁屏后继续出声 -->
+        <service
+            android:name=".RadioService"
+            android:exported="false" />
+
+        <!--
+          ★ 开机自启广播接收器。
+          enabled="true" 保证安装后立刻生效（有些车机会把新装的包默认冻结）。
+          exported="false" 不需要，因为系统广播必须能送到我们这里，这里保持默认导出。
+        -->
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <!-- 标准开机完成广播 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 部分车机和国产 ROM 用的是快速开机广播，一起收 -->
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

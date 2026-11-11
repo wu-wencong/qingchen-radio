@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  用 selector + shape 画按钮背景（API 1 就支持），
+  这样不依赖 backgroundTint（那是 API 21 的属性，车机上会不生效）。
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#16304F" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#9AA6B5" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1F3A5F" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+
+</selector>

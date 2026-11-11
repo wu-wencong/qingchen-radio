@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">清晨音乐台 4.0</string>
+    <string name="station_name">清晨音乐台</string>
+    <string name="live_badge">● 24 小时直播中</string>
+
+    <string name="action_play">▶  点击收听</string>
+    <string name="action_pause">⏸  暂停</string>
+
+    <string name="status_idle">点一下就能听，锁屏也能继续</string>
+    <string name="status_connecting">正在连接…</string>
+    <string name="status_playing">正在播放 · 高清音质</string>
+    <string name="status_paused">已暂停</string>
+    <string name="status_error">连接失败，正在自动换线路…</string>
+
+    <string name="quality_prefix">高清音源 · 实测约 </string>
+    <string name="quality_suffix"> kbps</string>
+    <string name="version_prefix">本机 Android </string>
+
+    <string name="auto_play_label">开机自动播放</string>
+    <string name="auto_play_hint">车机通电或重启后自动开播，不用手点</string>
+
+    <string name="footer">非官方收听工具 · 版权归清晨音乐台所有\n仅供个人收听，请勿用于商业用途</string>
+
+    <string name="notif_playing">正在播放 · 高清音质</string>
+    <string name="notif_paused">已暂停，点击继续</string>
+    <string name="notif_toggle_play">播放</string>
+    <string name="notif_toggle_pause">暂停</string>
+</resources>

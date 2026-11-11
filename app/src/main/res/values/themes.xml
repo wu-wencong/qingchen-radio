@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      用系统自带的 Holo 主题（API 11 起就有），而不是 AppCompat：
+      AppCompat 最低要求 API 21，装不进 Android 4.0 的车机。
+    -->
+    <style name="Theme.QingchenRadio" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

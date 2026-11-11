@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  主播放页（Android 4.0 版）。
+  全部使用系统原生控件和 API 1 就有的属性：
+  不用 backgroundTint（API 21）、不用 layout_marginStart（API 17）、不用 elevation（API 21），
+  保证在 4.0 上不闪退、不变形。
+  外面套 ScrollView：车机屏幕普遍偏矮，小屏也不会被截断。
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="28dp"
+        android:paddingRight="28dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="26dp">
+
+        <TextView
+            android:id="@+id/tvStation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/station_name"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:textColor="@color/textMain" />
+
+        <TextView
+            android:id="@+id/tvLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/live_badge"
+            android:textSize="13sp"
+            android:textColor="@color/liveRed" />
+
+        <!-- 当前时段节目名，按本机时间本地算，不联网 -->
+        <TextView
+            android:id="@+id/tvProgram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:textSize="16sp"
+            android:textColor="@color/textMain"
+            android:gravity="center" />
+
+        <!-- 音质档位：直接从配置里读实测码率，不吹牛 -->
+        <TextView
+            android:id="@+id/tvQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="13sp"
+            android:textColor="@color/brandAccent" />
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="230dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="26dp"
+            android:text="@string/action_play"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_bg" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/status_idle"
+            android:textSize="14sp"
+            android:textColor="@color/textSub"
+            android:gravity="center" />
+
+        <!-- ★ 开机自启开关：勾上之后，车机通电/重启就自动开播 -->
+        <CheckBox
+            android:id="@+id/cbAutoPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="@string/auto_play_label"
+            android:textSize="15sp"
+            android:textColor="@color/textMain" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auto_play_hint"
+            android:textSize="11sp"
+            android:textColor="@color/textSub"
+            android:gravity="center" />
+
+        <!-- 车机真实系统版本，一眼看出到底是不是 6.0 -->
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:textSize="12sp"
+            android:textColor="@color/textSub"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/footer"
+            android:textSize="11sp"
+            android:lineSpacingExtra="3dp"
+            android:textColor="@color/textSub"
+            android:gravity="center" />
+
+    </LinearLayout>
+</ScrollView>

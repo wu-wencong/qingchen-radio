@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 清晨感：米白底 + 深蓝字 + 一点暖金，久看不刺眼 -->
+    <color name="bg">#F7F4EE</color>
+    <color name="textMain">#1F3A5F</color>
+    <color name="textSub">#7A8699</color>
+    <color name="liveRed">#C8553D</color>
+    <color name="brand">#1F3A5F</color>
+    <color name="brandAccent">#D4623F</color>
+</resources>
